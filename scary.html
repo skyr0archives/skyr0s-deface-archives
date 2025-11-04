@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owned by skyr0</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:100%; height:100%; overflow:hidden; background-color:black; font-family:"Arial Narrow", Arial, sans-serif; color:white; }
+  #videoBg { position: fixed; top:0; left:0; width:100%; height:100%; object-fit: cover; z-index: 0; }
+  #overlay { position: absolute; top:0; left:0; width:100%; height:100%; background-color: black; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 2; }
+  #introImage { max-width: 300px; width: 40%; margin-bottom: 30px; }
+  #playButton { background: black; color: white; font-size: 36px; padding: 15px 30px; border: 2px solid white; cursor: pointer; font-family:"Arial Narrow", Arial, sans-serif; }
+  #playButton:hover { background:white; color:black; }
+  
+  #labels {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 3;
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+#labels.show {
+  display: block;
+  opacity: 1;
+}
+
+#labels .main {
+  font-size: 64px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 2px rgba(255,255,255,0.8), 0 0 4px rgba(255,255,255,0.6);
+  margin-bottom: 16px; /* 👈 adds space below the main title */
+}
+
+#labels .sub {
+  font-size: 24px;
+  opacity: 0.9;
+  margin-top: 0;       /* 👈 reset top margin */
+  margin-bottom: 12px; /* 👈 consistent spacing below each .sub */
+}
+
+/* Remove extra space after the last .sub */
+#labels .sub:last-child {
+  margin-bottom: 0;
+}
+</style>
+</head>
+<body>
+
+<video id="videoBg" loop muted playsinline>
+  <source src="https://anondrop.net/1435114590592700447/Theme%20Song%20Goosebumps%20-%20Goosebumps%20-%20Scholastic%20(1080p,%20h264,%20youtube).mp4?download=true" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<div id="overlay">
+  <img id="introImage" src="https://anondrop.net/1424245191358943354/image-removebg-preview.png?download=true" alt="Intro Image">
+  <button id="playButton">Click Me</button>
+</div>
+
+<div id="labels">
+  <div class="main">hacked by skyr0.</div>
+  <div class="sub">discord is skyr0caught</div>
+  <div class="sub">kinda sad that your sec didnt protect you. i might ruin your company... sorry. but the worlds cruel not just me.</div>
+  <div class="sub">protection isnt real. it just adds more vulnerabilities.</div>
+  <div class="sub">
+    <a href="https://t.me/malonelammalonelammalonelam" target="_blank" style="color: inherit; text-decoration: underline; cursor: pointer;">
+      telegram is @malonelammalonelammalonelam (click me)
+    </a>
+  </div>
+</div>
+
+<script>
+const video = document.getElementById('videoBg');
+const overlay = document.getElementById('overlay');
+const btn = document.getElementById('playButton');
+const labels = document.getElementById('labels');
+
+btn.addEventListener('click', () => {
+  video.muted = false;
+  video.play().catch(err => console.warn(err));
+  overlay.style.transition = "opacity 0.5s ease";
+  overlay.style.opacity = 0;
+  setTimeout(()=> overlay.style.display = "none", 500);
+  labels.classList.add('show');
+});
+
+video.addEventListener('ended', () => {
+  video.play();
+});
+</script>
+
+</body>
+</html>
