@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owned by skyr0</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body {
+    width:100%; height:100%; overflow:hidden;
+    background-color:black;
+    font-family:"Arial Narrow", Arial, sans-serif;
+    color:white;
+  }
+  body {
+    background-image: url("https://anondrop.net/1435179071225991259/image.psd.png?download=true");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  #overlay {
+    position: absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background-color: rgba(0,0,0,0.85);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 2;
+  }
+
+  #introImage {
+    max-width: 300px; width: 40%; margin-bottom: 30px;
+  }
+
+  #playButton {
+    background: black; color: white;
+    font-size: 36px; padding: 15px 30px;
+    border: 2px solid white; cursor: pointer;
+    font-family:"Arial Narrow", Arial, sans-serif;
+  }
+
+  #playButton:hover { background:white; color:black; }
+
+  #labels {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+
+  #labels.show { display: block; opacity: 1; }
+
+#labels .main, #labels .sub {
+    color: white;
+    display: inline-block;           /* allows padding around text */
+    background-color: rgba(0,0,0,0.5); /* semi-transparent black behind text */
+    padding: 4px 10px;               /* space around text */
+    border-radius: 4px;              /* optional, slightly rounded edges */
+    text-shadow: none;                /* remove shadow if you want */
+}
+
+
+#labels .sub:last-child { margin-bottom: 0; }
+
+</style>
+</head>
+<body>
+
+<!-- Background image only, no video -->
+<audio id="bgAudio" loop>
+  <source src="https://anondrop.net/1437285099186946194/parade%20(paprika)%20slowed%20intro%20looped.mp3?download=true" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
+
+<div id="overlay">
+  <img id="introImage" src="https://anondrop.net/1435179071225991259/image.psd.png?download=true" alt="Intro Image">
+  <button id="playButton">Click Me</button>
+</div>
+
+<div id="labels">
+  <div class="main">hacked by skyr0.</div>
+  <div class="sub">discord is skyr0caught</div>
+  <div class="sub">kinda sad that your sec didnt protect you. i might ruin your company... sorry. but the worlds cruel not just me.</div>
+  <div class="sub">protection isnt real. it just adds more vulnerabilities.</div>
+  <div class="sub">
+    <a href="https://t.me/malonelammalonelammalonelam" target="_blank" style="color: inherit; text-decoration: underline; cursor: pointer;">
+      telegram is @malonelammalonelammalonelam (click me)
+    </a>
+  </div>
+</div>
+
+<script>
+const audio = document.getElementById('bgAudio');
+const overlay = document.getElementById('overlay');
+const btn = document.getElementById('playButton');
+const labels = document.getElementById('labels');
+
+btn.addEventListener('click', () => {
+  audio.play().catch(err => console.warn(err));
+  overlay.style.transition = "opacity 0.5s ease";
+  overlay.style.opacity = 0;
+  setTimeout(()=> overlay.style.display = "none", 500);
+  labels.classList.add('show');
+});
+</script>
+
+</body>
+</html>
